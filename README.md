@@ -1,4 +1,7 @@
 # Boldare
+
+GAŁĄŹ DEVELOP ZAWIERA 3 ROZWIĄZANIA
+
 Zadanie rekrutacyjne
 Napisz program konsolowy, który przyjmuje na wyjściu nieokreśloną liczbę reszt do
 wydania. Na starcie kasa drobnych do wydawania ma następujący stan:
