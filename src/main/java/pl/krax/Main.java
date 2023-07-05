@@ -42,6 +42,13 @@ public class Main {
         System.out.println("Dla reszty " + change + " zł:");
 
         int groszRemainder = (int) (change * 100);
+        giveChangeRecursive(groszRemainder);
+    }
+
+    private static void giveChangeRecursive(int groszRemainder) {
+        if (groszRemainder == 0) {
+            return;
+        }
 
         for (Coin coin : coins) {
             int denomination = coin.getValue();
@@ -57,16 +64,9 @@ public class Main {
                 } else {
                     System.out.println("Wydaj " + dispensed + " monet " + denomination + " gr");
                 }
-
-                if (groszRemainder == 0) {
-                    break;
-                }
+                break;
             }
         }
-
-        if (groszRemainder > 0) {
-            System.out.println("Nie ma wystarczającej ilości drobnych monet do wydania reszty. Program zostaje zamknięty!");
-            System.exit(0);
-        }
+        giveChangeRecursive(groszRemainder);
     }
 }
