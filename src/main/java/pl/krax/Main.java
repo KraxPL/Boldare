@@ -1,22 +1,20 @@
 package pl.krax;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
-    private static final Map<Integer, Integer> denominations = new HashMap<>();
+    private static final List<Coin> coins = new ArrayList<>();
 
     static {
-        denominations.put(500, 1);  // 5 zł x 1szt
-        denominations.put(200, 3);  // 2 zł x 3szt
-        denominations.put(100, 5);  // 1 zł x 5szt
-        denominations.put(50, 10);  // 50 gr x 10szt
-        denominations.put(20, 20);  // 20 gr x 20szt
-        denominations.put(10, 200); // 10 gr x 200szt
-        denominations.put(5, 100);  // 5 gr x 100szt
-        denominations.put(2, 100);  // 2 gr x 100szt
-        denominations.put(1, 10000);  // 1 gr x 10000szt
+        coins.add(new Coin(500, 1));  // 5 zł x 1 szt
+        coins.add(new Coin(200, 3));  // 2 zł x 3 szt
+        coins.add(new Coin(100, 5));  // 1 zł x 5 szt
+        coins.add(new Coin(50, 10));  // 50 gr x 10 szt
+        coins.add(new Coin(20, 20));  // 20 gr x 20 szt
+        coins.add(new Coin(10, 200)); // 10 gr x 200 szt
+        coins.add(new Coin(5, 100));  // 5 gr x 100 szt
+        coins.add(new Coin(2, 100));  // 2 gr x 100 szt
+        coins.add(new Coin(1, 10000));  // 1 gr x 10000 szt
     }
 
     public static void main(String[] args) {
@@ -45,23 +43,19 @@ public class Main {
 
         int groszRemainder = (int) (change * 100);
 
-        int[] coins = {500, 200, 100, 50, 20, 10, 5, 2, 1};
+        for (Coin coin : coins) {
+            int denomination = coin.getValue();
+            int amount = coin.getQuantity();
 
-        for (int denomination : coins) {
-            int amount = denominations.get(denomination);
-
-            if (groszRemainder >= denomination) {
-                int dispended = groszRemainder / denomination;
-                if (dispended > amount) {
-                    dispended = amount;
-                }
-                groszRemainder -= dispended * denomination;
-                denominations.put(denomination, amount - dispended);
+            if (groszRemainder >= denomination && amount > 0) {
+                int dispensed = Math.min(groszRemainder / denomination, amount);
+                groszRemainder -= dispensed * denomination;
+                coin.reduceQuantity(dispensed);
 
                 if (denomination >= 100) {
-                    System.out.println("Wydaj " + dispended + " monet " + denomination / 100.0 + " zł");
+                    System.out.println("Wydaj " + dispensed + " monet " + denomination / 100 + " zł");
                 } else {
-                    System.out.println("Wydaj " + dispended + " monet " + denomination + " gr");
+                    System.out.println("Wydaj " + dispensed + " monet " + denomination + " gr");
                 }
 
                 if (groszRemainder == 0) {
@@ -69,6 +63,7 @@ public class Main {
                 }
             }
         }
+
         if (groszRemainder > 0) {
             System.out.println("Nie ma wystarczającej ilości drobnych monet do wydania reszty. Program zostaje zamknięty!");
             System.exit(0);
