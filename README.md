@@ -15,23 +15,29 @@ wydania. Na starcie kasa drobnych do wydawania ma następujący stan:
 Program ma wypisać jakie monety mają być użyte dla wydania poszczególnych reszt,
 aby użyć jak najmniej monet (pamiętając o tym, że poprzednie monety schodzą ze
 stanu i nie mogą być używane przy wydawaniu kolejnych reszt).
+
+
 Przykład:
-Dla reszty 1.30 zł:
-Wydaj 1 monet 1 zł
-Wydaj 1 monet 20 gr
-Wydaj 1 monet 10 gr
-Dla reszty 11.70 zł:
-Wydaj 1 monet 5 zł
-Wydaj 3 monet 2 zł
-Wydaj 1 monet 50 gr
-Wydaj 1 monet 20 gr
-Dla reszty 6.70 zł:
-Wydaj 4 monet 1 zł
-Wydaj 5 monet 50 gr
-Wydaj 1 monet 20 gr
-Dla reszty 4.30 zł:
-Wydaj 4 monet 50 gr
-Wydaj 11 monet 20 gr
-Wydaj 1 monet 10 gr
+
+  	Dla reszty 1.30 zł:
+    Wydaj 1 monet 1 zł
+    Wydaj 1 monet 20 gr
+    Wydaj 1 monet 10 gr
+
+  	Dla reszty 11.70 zł:
+    Wydaj 1 monet 5 zł
+    Wydaj 3 monet 2 zł
+    Wydaj 1 monet 50 gr
+    Wydaj 1 monet 20 gr
+
+  	Dla reszty 6.70 zł:
+    Wydaj 4 monet 1 zł
+    Wydaj 5 monet 50 gr
+    Wydaj 1 monet 20 gr
+		
+	Dla reszty 4.30 zł:
+    Wydaj 4 monet 50 gr
+    Wydaj 11 monet 20 gr
+    Wydaj 1 monet 10 gr
 
 Rozwiązanie udostępnij w postaci repozytorium na GitHubie.
